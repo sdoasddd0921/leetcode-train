@@ -38,6 +38,10 @@ var removeDuplicates = function(nums) {
 };
 
 // test
-const arr = [0,0,1,1,1,2,2,3,3,4]
-console.log(removeDuplicates(arr))
-console.log(arr)
+const arr1 = [0,0,1,1,1,2,2,3,3,4]
+console.log(removeDuplicates(arr1))
+console.log(arr1)
+
+const arr2 = [0,1,2,3,4]
+console.log(removeDuplicates(arr2))
+console.log(arr2)
