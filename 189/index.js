@@ -26,6 +26,9 @@ const reverse = (arr, start, end) => {
 	}
 }
 var rotate = function(nums, k) {
+	if (k > nums.length) {
+		k %= nums.length
+	}
 	// 三次反转法
 	const end = nums.length - 1
 	reverse(nums, 0, end)
@@ -34,6 +37,6 @@ var rotate = function(nums, k) {
 };
 
 // test
-const arr = [1,2,3,4,5,6,7]
+const arr = [1,2]
 rotate(arr, 3)
 console.log(arr)
