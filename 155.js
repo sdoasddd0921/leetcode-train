@@ -1,9 +1,17 @@
 // 最小栈
+function Node(val, min, next) {
+	this.val = val
+	this.min = min
+	this.next = next || null
+}
+const { min } = Math
+
 /**
  * initialize your data structure here.
  */
 var MinStack = function() {
-	this.stack = []
+	// 链表法（54%）
+	this.head = null
 };
 
 /**
@@ -11,29 +19,32 @@ var MinStack = function() {
  * @return {void}
  */
 MinStack.prototype.push = function(x) {
-	this.stack.push(x)
+	if (!this.head) {
+		this.head = new Node(x, x)
+	} else {
+		this.head = new Node(x, min(x, this.head.min), this.head)
+	}
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function() {
-	this.stack.pop()
+	this.head = this.head.next
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function() {
-	return this.stack[this.stack.length - 1]
+	return this.head.val
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.getMin = function() {
-	const arr = [...this.stack]
-	return arr.sort((a, b) => a - b)[0]
+	return this.head.min
 };
 
 /**
